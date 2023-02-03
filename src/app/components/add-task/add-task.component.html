@@ -1,15 +1,33 @@
-<form *ngIf="showAddTask" class="add-form" (ngSubmit)="onSubmit()">
-    <div class="form-control">
-        <label for="text">Task</label>
-        <input type="text" name="text" [(ngModel)]="text" id="text" placeholder="Add Task">
-    </div>
-    <div class="form-control">
-        <label for="day">Day & Time</label>
-        <input type="text" name="day" [(ngModel)]="day" id="day" placeholder="Add Day & Time">
-    </div>
-    <div class="from-control form-control-check">
-        <label for="reminder">Day & Time</label>
-        <input type="checkbox" name="reminder" [(ngModel)]="reminder" id="reminder">
-    </div>
-  <input type="submit" value="Save Task" class="btn btn-block" />
+<form id="form" name="contact-form" class="example-form" (ngSubmit)="onSubmit()">
+  <div class="form-control" >
+    <mat-form-field class="example-full-width" appearance="outline" >
+        <mat-label>Task</mat-label>
+        <input id="input1" name="input1" type="text" matInput [formControl]="taskFormControl" [errorStateMatcher]="matcher"
+                placeholder="Ex. Doctor's Appointment" [(ngModel)]="text">
+        <mat-hint>Enter Task</mat-hint>
+        <mat-error *ngIf="taskFormControl.hasError('email') && !taskFormControl.hasError('required')">
+          Please enter text
+        </mat-error>
+        <mat-error *ngIf="taskFormControl.hasError('required')">
+          Task is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+</div>
+<div class="example-form">
+  <mat-form-field appearance="outline" class="example-full-width">
+      <input id="input2" name="input2" matInput [matDatepicker]="releasedAtPicker" (click)="releasedAtPicker.open()"  [(ngModel)]="day">
+      <mat-datepicker-toggle matSuffix [for]="releasedAtPicker">
+      </mat-datepicker-toggle>
+      <mat-datepicker #releasedAtPicker>
+      </mat-datepicker>
+      <mat-hint>Enter Date</mat-hint>
+    </mat-form-field>
+</div>
+<div class="from-control form-control-check">
+    <label for="reminder">Reminder</label>
+    <input type="checkbox" name="reminder" [(ngModel)]="reminder" id="reminder">
+</div>
+<input type="submit" value="Save Task" class="btn btn-block" />
 </form>
+
+

@@ -18,7 +18,14 @@ export class UiService {
     this.subject.next(this.showAddTask);
   }
 
+  resetAddTask(): void
+  {
+    this.showAddTask = false;
+  }
+
+
   onToggle(): Observable<any>{
     return this.subject.asObservable();
   }
+
 }

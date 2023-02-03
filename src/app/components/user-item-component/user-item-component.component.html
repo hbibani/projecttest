@@ -1,0 +1,13 @@
+<div  class="task"  (dblclick)="onToggle(user)" >
+    <h2>
+        <fa-icon
+        (click)="onDelete(user)"
+        [ngStyle]="{ color: 'red' }"
+        [icon]="faTimes"
+      ></fa-icon>
+    </h2>
+    <h3>
+     <b>Username: </b> {{ user.username }}
+    </h3>
+    <h3> <b>Translate: </b>{{ true == user.translate ? 'Yes' : 'No' }}</h3>
+</div>

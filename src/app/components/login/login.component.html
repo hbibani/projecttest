@@ -1,0 +1,38 @@
+<h2>Log-in Page</h2>
+<p *ngIf="showSign2" class="username" >Username or password is not correct.</p>
+<div>
+    <form class="add-form" (ngSubmit)="onSubmit()">
+        <div class="form-control">
+            <mat-form-field class="example-full-width" appearance="outline" >
+                <mat-label>Username</mat-label>
+                <input type="text" matInput [formControl]="taskFormControl" [errorStateMatcher]="matcher" [(ngModel)]="username">
+                <mat-hint>Enter Username</mat-hint>
+                <mat-error *ngIf="taskFormControl.hasError('email') && !taskFormControl.hasError('required')">
+                  Please enter text
+                </mat-error>
+                <mat-error *ngIf="taskFormControl.hasError('required')">
+                  Username is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+        </div>
+    
+        <div class="form-control">
+            <mat-form-field class="example-full-width" appearance="outline" >
+                <mat-label>Password</mat-label>
+                <input type="password" matInput [formControl]="taskFormControl" [errorStateMatcher]="matcher"
+                       [(ngModel)]="password">
+                <mat-hint>Enter Password</mat-hint>
+                <mat-error *ngIf="taskFormControl.hasError('email') && !taskFormControl.hasError('required')">
+                  Please enter text
+                </mat-error>
+                <mat-error *ngIf="taskFormControl.hasError('required')">
+                  Password is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+        </div>
+      <input background="green"  type="submit" value="Log-in" class="btn1 btn-block" />
+    </form>
+    <div>
+        <button routerLink="/signup" class="btn2 btn-block1 example-full-width" *ngIf="hasRoute('/')">Sign-up</button>
+    </div>
+</div>

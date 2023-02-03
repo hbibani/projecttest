@@ -1,14 +1,13 @@
-
 .add-form {
-    margin-bottom: 40px;
-  }
-
-  .example-form {
+    margin-bottom: 10px;
     min-width: 150px;
     max-width: 500px;
-    width: 100%;
   }
-  
+
   .example-full-width {
     width: 100%;
+  }
+
+  .username{
+    color:red;
   }
