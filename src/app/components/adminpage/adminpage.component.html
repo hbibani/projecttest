@@ -1,1 +1,3 @@
+<h2>Current Users</h2>
+<p>Click on a user to find usage.</p>
 <app-user-item-component *ngFor="let user of users" [user]="user" (onDeleteTask)="deleteTask(user)" (onToggleEmit)="toggle(user)"> </app-user-item-component>
